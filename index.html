@@ -345,6 +345,8 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -369,11 +371,15 @@
 
         .project-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-description {
             color: #666;
             margin-bottom: 1rem;
+            flex-grow: 1;
         }
 
         .project-highlights {
@@ -407,6 +413,7 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            margin-top: auto;
         }
 
         .project-link:hover {
@@ -541,14 +548,23 @@
                 grid-template-columns: 1fr;
             }
 
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .section-title {
                 font-size: 2rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <nav class="container">
             <div class="nav">
@@ -565,7 +581,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Ekansh Kumar</h1>
@@ -574,7 +589,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title fade-in">About Me</h2>
@@ -595,7 +609,6 @@
         </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Education</h2>
@@ -629,7 +642,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Technical Skills</h2>
@@ -660,6 +672,8 @@
                         <span class="skill-tag">LSTM</span>
                         <span class="skill-tag">Time Series</span>
                         <span class="skill-tag">Predictive Analytics</span>
+                        <span class="skill-tag">K-Means</span>
+                        <span class="skill-tag">Generative AI</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -684,7 +698,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Projects</h2>
@@ -700,7 +713,6 @@
                         </p>
                         <div class="project-highlights">
                             <p><strong>Outcome:</strong> Demonstrated cost-saving potential through accurate failure predictions, enabling proactive maintenance and reduced downtime.</p>
-                            <p><strong>Challenges:</strong> Reshaped time-series data into overlapping sequences for LSTM training, ensuring efficient learning of temporal dependencies.</p>
                         </div>
                         <div class="project-tech">
                             <span class="tech-tag">XGBoost</span>
@@ -719,8 +731,11 @@
                     </div>
                     <div class="project-content">
                         <p class="project-description">
-                            A mini project designed to manage and synchronize events across multiple users and devices. It allows users to create, update, and delete events, with real-time synchronization and notification features. The calendar supports daily, weekly, and monthly views, and ensures data consistency through local storage or backend integration.
+                            A mini project designed to manage and synchronize events across multiple users and devices. It allows users to create, update, and delete events, with real-time synchronization and notification features. The calendar supports daily, weekly, and monthly views, and ensures data consistency.
                         </p>
+                         <div class="project-highlights">
+                             <p><strong>Features:</strong> Real-time event synchronization and a multi-view calendar interface.</p>
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">HTML/CSS</span>
@@ -730,11 +745,31 @@
                         <a href="https://github.com/NewbEkansh/EventSync" class="project-link">View Project →</a>
                     </div>
                 </div>
+                 <div class="project-card">
+                    <div class="project-header">
+                        <h3>AI-Powered Driver Behavior Analysis</h3>
+                        <div class="project-duration">Dec 2024 – Feb 2025</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            [cite_start]Developed a system to transform raw vehicle accelerometer data into actionable, natural-language reports for fleet managers. [cite: 2, 4] [cite_start]This project moves beyond simple event flagging to provide holistic, AI-driven driver profiles, saving managers time and providing clearer feedback for driver coaching. [cite: 7]
+                        </p>
+                        <div class="project-highlights">
+                            [cite_start]<p><strong>Innovation:</strong> Used K-Means clustering to autonomously identify driver profiles [cite: 14, 15] [cite_start]and leveraged a Large Language Model (distilgpt2) to automatically generate intuitive, narrative performance summaries. [cite: 20, 21, 25]</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">K-Means</span>
+                            <span class="tech-tag">Generative AI</span>
+                            <span class="tech-tag">LLM</span>
+                             <span class="tech-tag">Data Science</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
     <section id="certifications" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Certifications</h2>
@@ -754,7 +789,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="social-links">
@@ -807,45 +841,6 @@
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Dynamic typing effect for hero section
-        const heroTitle = document.querySelector('.hero h1');
-        const text = 'Ekansh Kumar';
-        let index = 0;
-
-        function typeWriter() {
-            if (index < text.length) {
-                heroTitle.textContent = text.slice(0, index + 1);
-                index++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-
-        // Start typing effect after page load
-        window.addEventListener('load', () => {
-            heroTitle.textContent = '';
-            setTimeout(typeWriter, 1000);
-        });
-
-        // Add hover effect to skill tags
-        document.querySelectorAll('.skill-tag').forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1) rotate(2deg)';
-            });
-            
-            tag.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
     </script>
